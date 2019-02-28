@@ -1,0 +1,101 @@
+<odoo>
+  <data>
+
+    <record id="puesto1" model="bets.puesto">
+      <field name="name">Empleado</field>
+      <field name="horas_mensuales">30</field>
+      <field name="sueldo_hora">9</field>
+      <field name="notas">Empleado de la empresa</field>
+    </record>
+
+    <record id="puesto2" model="bets.puesto">
+      <field name="name">Encargado</field>
+      <field name="horas_mensuales">40</field>
+      <field name="sueldo_hora">15</field>
+      <field name="notas">Encargado de la empresa</field>
+    </record>
+
+    <record id="puesto3" model="bets.puesto">
+      <field name="name">Encargado de la limpieza</field>
+      <field name="horas_mensuales">30</field>
+      <field name="sueldo_hora">8</field>
+      <field name="notas">Se encarga de controlar y llevar a cabo las labores de limpieza</field>
+    </record>
+
+    <record id="personal1" model="bets.personal">
+      <field name="name">Roberto</field>
+      <field name="dni">74589863A</field>
+      <field name="apellidos">Ruiz</field>
+      <field name="puesto" ref="puesto1"></field>
+      <field name="notas">Es un trabajador torpe</field>
+    </record>
+
+    <record id="personal2" model="bets.personal">
+      <field name="name">Alejandro</field>
+      <field name="dni">84521459B</field>
+      <field name="apellidos">Rodriguez</field>
+      <field name="puesto" ref="puesto2"></field>
+      <field name="notas">Los lunes no puede acudir al trabajo</field>
+    </record>
+
+    <record id="personal3" model="bets.personal">
+      <field name="name">Pedro</field>
+      <field name="dni">36496837G</field>
+      <field name="apellidos">Martinez</field>
+      <field name="puesto" ref="puesto3"></field>
+      <field name="notas">Nuevo en el cargo, revisar su labor y eficacia</field>
+    </record>
+
+    <record id="cliente1" model="bets.cliente">
+      <field name="dni">713857605B</field>
+      <field name="nombre">Jiann</field>
+      <field name="apellidos">Zambrano Jaramillo</field>
+      <field name="saldoinicial">2000</field>
+    </record>
+
+    <record id="cliente2" model="bets.cliente">
+      <field name="dni">75676330N</field>
+      <field name="nombre">Santiago</field>
+      <field name="apellidos">Lopez</field>
+      <field name="saldoinicial">2500</field>
+    </record>
+
+    <record id="cliente3" model="bets.cliente">
+      <field name="dni">96859375Y</field>
+      <field name="nombre">Alvaro</field>
+      <field name="apellidos">Diez</field>
+      <field name="saldoinicial">3000</field>
+    </record>
+
+    <record id="partidos1" model="bets.partidos">
+      <field name="equipo1">Real Madrid</field>
+      <field name="equipo2">Barcelona</field>
+      <field name="dia">28-02-2019</field>
+    </record>
+
+    <record id="partidos2" model="bets.partidos">
+      <field name="equipo1">Real Betis</field>
+      <field name="equipo2">Sevilla</field>
+      <field name="dia">07-03-2019</field>
+    </record>
+
+    <record id="apuesta1" model="bets.apuesta">
+      <field name="cliente" ref="cliente1"></field>
+      <field name="partidos" ref="partidos1"></field>
+      <field name="dineroApostado">300</field>
+    </record>
+
+    <record id="apuesta2" model="bets.apuesta">
+      <field name="cliente" ref="cliente2"></field>
+      <field name="partidos" ref="partidos2"></field>
+      <field name="dineroApostado">600</field>
+    </record>
+
+    <record id="apuesta3" model="bets.apuesta">
+      <field name="cliente" ref="cliente3"></field>
+      <field name="partidos" ref="partidos2"></field>
+      <field name="dineroApostado">150</field>
+    </record>
+
+  </data>
+</odoo>

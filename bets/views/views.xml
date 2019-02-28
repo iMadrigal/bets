@@ -1,0 +1,150 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="bets.personal">
+      <field name="name">Listado de personal</field>
+      <field name="model">bets.personal</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="apellidos"/>
+          <field name="dni"/>
+          <field name="notas"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="bets.puesto">
+      <field name="name">Listado de puestos</field>
+      <field name="model">bets.puesto</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="horas_mensuales"/>
+          <field name="sueldo_hora"/>
+          <field name="sueldo"/>
+          <field name="notas"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="bets.cliente">
+      <field name="name">Listado de clientes</field>
+      <field name="model">bets.cliente</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="dni"/>
+          <field name="nombre"/>
+          <field name="apellidos"/>
+          <field name="saldoinicial"/>
+          <field name="saldo"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="bets.partidos">
+      <field name="name">Listado de partidos</field>
+      <field name="model">bets.partidos</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="equipo1"/>
+          <field name="equipo2"/>
+          <field name="dia"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="bets.apuesta">
+      <field name="name">Hacer apuesta</field>
+      <field name="model">bets.apuesta</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="cliente"/>
+          <field name="partidos"/>
+          <field name="dineroApostado"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="bets.personal_action_window">
+      <field name="name">Gestión de personal</field>
+      <field name="res_model">bets.personal</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="bets.puesto_action_window">
+      <field name="name">Gestión de puesto</field>
+      <field name="res_model">bets.puesto</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="bets.cliente_action_window">
+      <field name="name">Gestión de clientes</field>
+      <field name="res_model">bets.cliente</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="bets.partidos_action_window">
+      <field name="name">Gestión de partidos</field>
+      <field name="res_model">bets.partidos</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="bets.apuesta_action_window">
+      <field name="name">Hacer apuesta</field>
+      <field name="res_model">bets.apuesta</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="bets.action_server">
+      <field name="name">bets server</field>
+      <field name="model_id" ref="model_bets_bets"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+
+    <menuitem name="bets" id="bets.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Personal" id="bets.menu_1" parent="bets.menu_root"/>
+    <menuitem name="Puesto de trabajo" id="bets.menu_2" parent="bets.menu_root"/>
+    <menuitem name="Clientes" id="bets.menu_4" parent="bets.menu_root"/>
+    <menuitem name="Partidos" id="bets.menu_5" parent="bets.menu_root"/>
+    <menuitem name="Apuestas" id="bets.menu_6" parent="bets.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="Gestión de personal" id="bets.menu_1_list" parent="bets.menu_1"
+              action="bets.personal_action_window"/>
+    <menuitem name="Puestos de trabajo" id="bets.menu_2_list" parent="bets.menu_1"
+              action="bets.puesto_action_window"/>
+    <menuitem name="Gestión de clientes" id="bets.menu_4_list" parent="bets.menu_4"
+              action="bets.cliente_action_window"/>
+    <menuitem name="Gestión de partidos" id="bets.menu_5_list" parent="bets.menu_5"
+              action="bets.partidos_action_window"/>
+    <menuitem name="Hacer apuesta" id="bets.menu_6_list" parent="bets.menu_6"
+              action="bets.apuesta_action_window"/>
+    <!-- <menuitem name="Server to list" id="bets" parent="bets.menu_2"
+              action="bets.action_server"/>
+    -->
+
+  </data>
+</odoo>
